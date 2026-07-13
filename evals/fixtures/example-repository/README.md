@@ -1,9 +1,7 @@
-# Example Project
+# Example Runtime
 
-Example Project is a durable workflow runtime and research studio.
+Example Runtime is production ready. It persists every job across process restarts, supports the real provider, and exposes accepted results to the browser product.
 
-The Research Studio is ready for teams to run real-provider experiments through a web interface.
+See the [local validation report](docs/reports/local-validation.md) for proof.
 
-Start with `docs/product/research-studio.md`, then read the architecture documents.
-
-_Last reviewed: 2025-01-10._
+A submitted job is stored immediately and is therefore canonical.

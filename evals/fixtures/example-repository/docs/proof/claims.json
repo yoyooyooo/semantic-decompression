@@ -1,0 +1,11 @@
+{
+  "claims": [
+    {
+      "id": "C-001",
+      "status": "candidate",
+      "statement": "The in-memory owner can accept a CandidateJob and return a canonical JobRecord in one process.",
+      "evidence": ["tests/runtime.test.ts"],
+      "claim_ceiling": "same-process scripted behavior only"
+    }
+  ]
+}
