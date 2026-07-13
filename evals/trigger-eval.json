@@ -1,0 +1,110 @@
+[
+  {
+    "query": "这份架构 RFC 写得太压缩了，帮我去高熵化，按一个刚接手仓库的人能走通的顺序解释，术语不要删。",
+    "should_trigger": true
+  },
+  {
+    "query": "上个 agent 的结论我每个字都认识但连起来不懂。不要摘要，帮我补齐隐含前提、因果链和例子。",
+    "should_trigger": true
+  },
+  {
+    "query": "请把这段论文 abstract 拆给一个刚入组的研究生听，保留方法学严谨性，也说清楚它不能推出什么。",
+    "should_trigger": true
+  },
+  {
+    "query": "Can you semantically decompress this governance memo for a smart newcomer? Keep the canonical terms and walk through one real case.",
+    "should_trigger": true
+  },
+  {
+    "query": "这份董事会材料全是 NRR、ICP、payback、operating leverage。帮我讲清楚它到底在做什么决策以及代价。",
+    "should_trigger": true
+  },
+  {
+    "query": "把这条政策从员工实际操作的角度展开：谁触发、谁审批、什么时候截止、出错怎么补救。",
+    "should_trigger": true
+  },
+  {
+    "query": "我要给新同事写一份从0到1的接手教程，素材都在下面，但请先建立全局心智模型再讲组件。",
+    "should_trigger": true
+  },
+  {
+    "query": "这段哲学论证名词太密，帮我先还原主张、前提、推理步骤、反对意见和边界。",
+    "should_trigger": true
+  },
+  {
+    "query": "请把这份数据分析做成伴读说明：指标口径、分群、基线、可能机制和替代解释都展开。",
+    "should_trigger": true
+  },
+  {
+    "query": "面向非专业管理者重写这份安全方案，既讲人话又保留 threat model、trust boundary 等正式词汇。",
+    "should_trigger": true
+  },
+  {
+    "query": "这是一个仓库压缩包。请给空上下文新人讲清楚项目定位、权威来源、当前实现与目标状态，不要把 roadmap 或候选 claim 当现状。",
+    "should_trigger": true
+  },
+  {
+    "query": "根据这组互相引用的 README、ADR、Spec、报告和代码重写项目入口，先判断谁拥有哪类陈述，再给出可验证的接手路径。",
+    "should_trigger": true
+  },
+  {
+    "query": "Audit this repository snapshot for semantic compression. Build a source-aware onboarding guide and separate current capabilities from product hypotheses and historical reports.",
+    "should_trigger": true
+  },
+  {
+    "query": "这个素材包里文件很多，我不是要目录摘要。请沿一条真实请求讲清楚系统，同时标出 authority、coverage 和没有验证的部分。",
+    "should_trigger": true
+  },
+  {
+    "query": "帮我把 archive.zip 解压到当前目录。",
+    "should_trigger": false
+  },
+  {
+    "query": "把下面 1200 字总结成三条 bullet，每条不超过 20 个字。",
+    "should_trigger": false
+  },
+  {
+    "query": "把这句话从英文直译成中文，不需要解释。",
+    "should_trigger": false
+  },
+  {
+    "query": "帮我润色这封邮件，让语气更礼貌，但不要改变内容结构。",
+    "should_trigger": false
+  },
+  {
+    "query": "检查下面这段 Rust 代码有没有 borrow checker 错误并直接修复。",
+    "should_trigger": false
+  },
+  {
+    "query": "根据这些数字生成一个折线图和 CSV，不需要文字分析。",
+    "should_trigger": false
+  },
+  {
+    "query": "给这个产品起十个名字，偏未来感。",
+    "should_trigger": false
+  },
+  {
+    "query": "把下面的技术说明改成更正式的公文语气，读者背景不变。",
+    "should_trigger": false
+  },
+  {
+    "query": "逐字校对下面合同中的错别字和标点，法律措辞不要解释。",
+    "should_trigger": false
+  },
+  {
+    "query": "为这份 API 写 OpenAPI schema，字段已经在下面列出。",
+    "should_trigger": false
+  },
+  {
+    "query": "把这个仓库的文件树列出来，按扩展名统计数量，不需要解释项目。",
+    "should_trigger": false
+  },
+  {
+    "query": "检查压缩包有没有路径穿越并安全解压，不需要读文档内容。",
+    "should_trigger": false
+  },
+  {
+    "query": "搜索仓库里所有 TODO 并输出文件名和行号。",
+    "should_trigger": false
+  }
+]

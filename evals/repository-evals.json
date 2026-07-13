@@ -1,0 +1,101 @@
+{
+  "skill_name": "semantic-decompression",
+  "suite": "repository-and-corpus-mode",
+  "fixture_root": "evals/fixtures/example-repository",
+  "evals": [
+    {
+      "id": 101,
+      "prompt": "这是一个仓库快照。请面向完全没有历史上下文的新接手者，讲清楚项目是什么、为什么分成 runtime / research / product、当前真正实现到哪里、哪些只是目标，以及最短阅读路径。不要逐文件摘要，也不要把 README 的说法直接当事实。",
+      "expected_output": "A source-aware newcomer orientation with a one-screen model, one concrete route, current-versus-target boundaries, and traceable source pointers.",
+      "files": [
+        "evals/fixtures/example-repository/AGENTS.md",
+        "evals/fixtures/example-repository/README.md",
+        "evals/fixtures/example-repository/SNAPSHOT_INFO.txt",
+        "evals/fixtures/example-repository/docs/semantic-root.md",
+        "evals/fixtures/example-repository/docs/current-state.md",
+        "evals/fixtures/example-repository/docs/adr/0001-separate-runtime-research-product.md",
+        "evals/fixtures/example-repository/docs/product/research-studio.md",
+        "evals/fixtures/example-repository/docs/reports/static-review.md",
+        "evals/fixtures/example-repository/docs/reports/README.md",
+        "evals/fixtures/example-repository/docs/proof/current.json",
+        "evals/fixtures/example-repository/src/capabilities.json"
+      ],
+      "expectations": [
+        "Uses AGENTS.md to discover project-local source authority",
+        "Explains Workflow, RunAttempt, CandidateResult, and acceptance without flattening runtime, research, and product",
+        "States that scripted fixture replay exists while real-provider execution, restart recovery, web UI, and the Research Studio are not implemented or not verified",
+        "Does not treat the stale README claim as current truth",
+        "Notes that the snapshot is dirty and that accepted_claims is empty",
+        "Provides source paths for load-bearing current-state claims",
+        "Uses progressive disclosure rather than summarizing every file"
+      ]
+    },
+    {
+      "id": 102,
+      "prompt": "基于这个仓库重写根 README 的核心内容，让新用户先看懂项目定位和当前边界。入口要短，不要把整个知识库复制进来，也不要声称 Research Studio 已经上线。",
+      "expected_output": "A concise README draft grounded in the repository's authority model and current state, with deep links and bounded claims.",
+      "files": [
+        "evals/fixtures/example-repository/AGENTS.md",
+        "evals/fixtures/example-repository/README.md",
+        "evals/fixtures/example-repository/docs/semantic-root.md",
+        "evals/fixtures/example-repository/docs/current-state.md",
+        "evals/fixtures/example-repository/docs/adr/0001-separate-runtime-research-product.md",
+        "evals/fixtures/example-repository/docs/product/research-studio.md",
+        "evals/fixtures/example-repository/docs/proof/current.json",
+        "evals/fixtures/example-repository/src/capabilities.json"
+      ],
+      "expectations": [
+        "Presents the durable workflow runtime as current project identity",
+        "Frames the Research Studio as a target product hypothesis",
+        "Separates implemented local fixture capabilities from unimplemented product and provider paths",
+        "Keeps the README as an entry point with links to semantic root, current state, decision, and product hypothesis",
+        "Does not infer production readiness or accepted claims"
+      ]
+    },
+    {
+      "id": 103,
+      "prompt": "审计这个素材包里关于‘当前已经可用’的说法。列出会误导接手者的冲突、缺失证据和时间边界，并说明每一项为什么不能直接写成当前事实。",
+      "expected_output": "A severity-ordered consistency audit that distinguishes stale copy, missing evidence, static checks, candidate claims, and dirty snapshot state.",
+      "files": [
+        "evals/fixtures/example-repository/AGENTS.md",
+        "evals/fixtures/example-repository/README.md",
+        "evals/fixtures/example-repository/SNAPSHOT_INFO.txt",
+        "evals/fixtures/example-repository/docs/current-state.md",
+        "evals/fixtures/example-repository/docs/reports/static-review.md",
+        "evals/fixtures/example-repository/docs/reports/README.md",
+        "evals/fixtures/example-repository/docs/proof/current.json",
+        "evals/fixtures/example-repository/src/capabilities.json"
+      ],
+      "expectations": [
+        "Flags the README statement that the Research Studio and real-provider web flow are ready",
+        "Finds that docs/reports/local-validation.md is referenced but absent",
+        "Explains that the static review does not prove runtime, provider, database, browser, restart, or integration behavior",
+        "Explains that a candidate claim is not an accepted claim",
+        "Treats dirty=true and report dates as provenance limits",
+        "Recommends minimal source or wording fixes without inventing evidence"
+      ]
+    },
+    {
+      "id": 104,
+      "prompt": "这个仓库里的 semantic root、ADR、current state、product hypothesis、static report 和 proof state 分别能决定什么？请做成新人能用的权威地图，并给一个例子说明为什么‘文件已经有了’不等于‘能力已经完成’。",
+      "expected_output": "A scoped authority map that explains owned statement classes and demonstrates existence-versus-completion with repository evidence.",
+      "files": [
+        "evals/fixtures/example-repository/AGENTS.md",
+        "evals/fixtures/example-repository/docs/semantic-root.md",
+        "evals/fixtures/example-repository/docs/current-state.md",
+        "evals/fixtures/example-repository/docs/adr/0001-separate-runtime-research-product.md",
+        "evals/fixtures/example-repository/docs/product/research-studio.md",
+        "evals/fixtures/example-repository/docs/reports/static-review.md",
+        "evals/fixtures/example-repository/docs/proof/current.json",
+        "evals/fixtures/example-repository/src/capabilities.json"
+      ],
+      "expectations": [
+        "Explains authority as scoped by question rather than one global ranking",
+        "Keeps definitions, accepted decisions, current implementation, product hypotheses, executed checks, and claim acceptance distinct",
+        "Uses the Research Studio or scripted fixture as an existence-versus-completion example",
+        "Preserves canonical terms and points to their definition owner",
+        "Does not claim that code overrides the semantic root or that the semantic root proves implementation"
+      ]
+    }
+  ]
+}

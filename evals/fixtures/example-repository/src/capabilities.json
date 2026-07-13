@@ -1,0 +1,11 @@
+{
+  "implemented": [
+    "scripted-fixture-replay",
+    "candidate-result-validation"
+  ],
+  "not_implemented": [
+    "real-provider-execution",
+    "durable-restart-recovery",
+    "web-ui"
+  ]
+}

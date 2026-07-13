@@ -1,0 +1,101 @@
+{
+  "skill_name": "semantic-decompression",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "下面是架构组刚发给我的说明：‘Runtime 只能提交 Candidate，Conversation owner 基于 accepted frontier 决定 canonical Utterance；RunSignal 非权威且可丢失。’我明天开始接手这个模块。请不要只给术语定义，把整条真实请求怎样跑、为什么要这样分权、崩溃后会怎样，从 0 到 1 给我讲清楚。",
+      "expected_output": "A newcomer-oriented narrative that preserves the formal terms while explaining authority, lifecycle, failure recovery, and one end-to-end example.",
+      "files": [],
+      "expectations": [
+        "Explains the local meaning of Candidate, owner, accepted frontier, canonical Utterance, and RunSignal",
+        "Walks through one request from input to committed output",
+        "Separates normal flow from crash or signal-loss recovery",
+        "Preserves the distinction between authoritative state and notification"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "董事会材料里写：‘FY27 从 logo growth 转向 efficient growth，以 NRR 和 CAC payback 作为双重护栏，通过 ICP tightening 和 seat expansion 重建 operating leverage。’我不是 SaaS 财务出身。请把这段去高熵化，解释每个词在这个决策里具体干什么、它们之间的因果关系、可能牺牲什么，不要只是翻译缩写。",
+      "expected_output": "A plain but rigorous explanation of the strategy, metric relationships, assumptions, and tradeoffs.",
+      "files": [],
+      "expectations": [
+        "Defines each metric in local decision context",
+        "Makes the causal chain and assumptions explicit",
+        "Explains at least one tradeoff or failure mode",
+        "Distinguishes business goals from measurements and tactics"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "请像带一个刚进实验室的研究生那样解释这句：‘Posterior predictive checks suggest model miscalibration concentrated in the upper tail, while the average treatment effect remains robust to weakly informative priors.’保留统计学严谨性，先建立直觉，再告诉我这句话能证明什么、不能证明什么。",
+      "expected_output": "A layered research explanation with intuition, formal meaning, evidence limits, and preserved terminology.",
+      "files": [],
+      "expectations": [
+        "Explains posterior predictive checks, miscalibration, upper tail, ATE, and priors in context",
+        "Separates intuitive explanation from formal interpretation",
+        "States what the sentence supports and does not support",
+        "Preserves uncertainty and evidence strength"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "公司差旅政策说：‘Exception requests submitted after booking require VP-level ratification and do not toll the reimbursement deadline.’这句话大家都看得懂单词，但总有人执行错。请从员工实际报销的一条流程讲起，解释触发条件、谁有权批准、时限会不会暂停，以及两个容易误解的地方。",
+      "expected_output": "A process-oriented policy explainer that makes actors, triggers, authority, timing, and misconceptions explicit.",
+      "files": [],
+      "expectations": [
+        "Uses a concrete reimbursement scenario",
+        "Identifies trigger, approver, deadline behavior, and consequence",
+        "Clarifies at least two likely misunderstandings",
+        "Does not invent a specific deadline absent from the source"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "上一个模型给了我一段回答，里面全是‘涌现、反身性、二阶效应、路径依赖、制度摩擦’，每个词我大概知道，但连在一起就不知道它到底在论证什么。请把这段当作论证而不是词典来解压：先说主张，再还原前提、因果链、反例和适用边界。",
+      "expected_output": "An argument-centered reconstruction, not a glossary, with claim, premises, mechanism, objections, and limits.",
+      "files": [],
+      "expectations": [
+        "Organizes the explanation around the argument rather than isolated terms",
+        "Reconstructs premises and causal links",
+        "Includes counterexamples or objections and scope limits",
+        "Explains terms where they become necessary"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I inherited a policy memo that says: ‘Risk acceptance is not risk remediation; residual exposure remains with the accountable executive until control evidence is revalidated.’ Rewrite it for a smart operations manager with no governance background. Keep the official vocabulary, but make the actors, sequence, responsibility, and practical consequence impossible to miss.",
+      "expected_output": "A semantic decompression in English that retains governance vocabulary and makes ownership and lifecycle explicit.",
+      "files": [],
+      "expectations": [
+        "Retains and contextualizes risk acceptance, remediation, residual exposure, and control evidence",
+        "Names the responsible actor and sequence",
+        "Explains the practical consequence",
+        "Avoids equating acceptance with resolution"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "把下面这个产品复盘做成一个新人也能接手的伴读说明，不要改原文结论：‘Activation uplift was isolated to invited workspaces; self-serve cohorts regressed after the onboarding gate was removed, suggesting channel-quality confounding.’我要知道指标、分群、可能机制、替代解释和下一步应该验证什么。",
+      "expected_output": "A companion explainer that preserves the source conclusion while unpacking metrics, cohorts, confounding, alternatives, and next checks.",
+      "files": [],
+      "expectations": [
+        "Keeps source conclusions distinct from explanatory inference",
+        "Explains cohort and confounding concepts in context",
+        "Offers plausible mechanisms as hypotheses, not facts",
+        "Identifies useful next validation steps"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "请从零讲清楚‘模型对齐不是一个单一指标，而是一组彼此可能冲突的约束’。我希望读完后能向非技术同事复述：为什么会冲突、有哪些典型维度、一次产品决策怎么暴露冲突、为什么不能用一个总分彻底解决。",
+      "expected_output": "A from-zero conceptual tutorial using a concrete product decision and preserving nuance.",
+      "files": [],
+      "expectations": [
+        "Begins with an intuitive whole-picture explanation",
+        "Uses a concrete product decision as a running example",
+        "Explains dimensions and conflict mechanisms",
+        "Explains why a single aggregate score is insufficient"
+      ]
+    }
+  ]
+}

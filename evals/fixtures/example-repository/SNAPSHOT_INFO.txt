@@ -1,0 +1,3 @@
+commit=example123
+dirty=true
+created_at=2026-07-02
