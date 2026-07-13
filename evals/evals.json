@@ -1,100 +1,109 @@
 {
   "skill_name": "semantic-decompression",
+  "version": "0.3.0",
   "evals": [
     {
       "id": 1,
-      "prompt": "下面是架构组刚发给我的说明：‘Runtime 只能提交 Candidate，Conversation owner 基于 accepted frontier 决定 canonical Utterance；RunSignal 非权威且可丢失。’我明天开始接手这个模块。请不要只给术语定义，把整条真实请求怎样跑、为什么要这样分权、崩溃后会怎样，从 0 到 1 给我讲清楚。",
+      "rule_ids": ["SD-R1", "SD-R3", "SD-R4", "SD-R5", "SD-R6"],
+      "prompt": "下面是架构组的说明：‘Runtime 只能提交 Candidate，Conversation owner 基于 accepted frontier 决定 canonical Utterance；RunSignal 非权威且可丢失。’我明天开始接手这个模块。请不要只给术语定义，把一条真实请求怎样跑、为什么这样分权、崩溃后会怎样，从 0 到 1 讲清楚。",
       "expected_output": "A newcomer-oriented narrative that preserves the formal terms while explaining authority, lifecycle, failure recovery, and one end-to-end example.",
       "files": [],
       "expectations": [
         "Explains the local meaning of Candidate, owner, accepted frontier, canonical Utterance, and RunSignal",
-        "Walks through one request from input to committed output",
+        "Walks one request from input to committed output",
         "Separates normal flow from crash or signal-loss recovery",
         "Preserves the distinction between authoritative state and notification"
       ]
     },
     {
       "id": 2,
-      "prompt": "董事会材料里写：‘FY27 从 logo growth 转向 efficient growth，以 NRR 和 CAC payback 作为双重护栏，通过 ICP tightening 和 seat expansion 重建 operating leverage。’我不是 SaaS 财务出身。请把这段去高熵化，解释每个词在这个决策里具体干什么、它们之间的因果关系、可能牺牲什么，不要只是翻译缩写。",
+      "rule_ids": ["SD-R1", "SD-R2", "SD-R3", "SD-R5", "SD-R6"],
+      "prompt": "董事会材料写：‘FY27 从 logo growth 转向 efficient growth，以 NRR 和 CAC payback 作为双重护栏，通过 ICP tightening 和 seat expansion 重建 operating leverage。’我不是 SaaS 财务出身。解释每个词在这个决策里具体干什么、它们的因果关系和可能牺牲什么，不要只翻译缩写。",
       "expected_output": "A plain but rigorous explanation of the strategy, metric relationships, assumptions, and tradeoffs.",
       "files": [],
       "expectations": [
-        "Defines each metric in local decision context",
-        "Makes the causal chain and assumptions explicit",
-        "Explains at least one tradeoff or failure mode",
-        "Distinguishes business goals from measurements and tactics"
+        "Explains each metric in the local decision context",
+        "Connects ICP tightening and seat expansion to NRR, CAC payback, and operating leverage",
+        "Names assumptions and tradeoffs",
+        "Does not promote the strategy into a guaranteed outcome"
       ]
     },
     {
       "id": 3,
-      "prompt": "请像带一个刚进实验室的研究生那样解释这句：‘Posterior predictive checks suggest model miscalibration concentrated in the upper tail, while the average treatment effect remains robust to weakly informative priors.’保留统计学严谨性，先建立直觉，再告诉我这句话能证明什么、不能证明什么。",
-      "expected_output": "A layered research explanation with intuition, formal meaning, evidence limits, and preserved terminology.",
+      "rule_ids": ["SD-R3", "SD-R4", "SD-R5", "SD-R6"],
+      "prompt": "把这条政策从员工实际操作的角度展开：‘申请在实质性完整后进入法定审查期，补件会中止时钟。’要讲清楚谁触发、谁判断、状态怎样变化、员工需要做什么，以及哪里仍取决于具体规则。",
+      "expected_output": "An operational explanation with actors, state transitions, actions, and bounded uncertainty.",
       "files": [],
       "expectations": [
-        "Explains posterior predictive checks, miscalibration, upper tail, ATE, and priors in context",
-        "Separates intuitive explanation from formal interpretation",
-        "States what the sentence supports and does not support",
-        "Preserves uncertainty and evidence strength"
+        "Separates submission, completeness determination, formal review, pause, and resumption",
+        "Names the decision-maker and affected actor without inventing a specific agency",
+        "Explains employee or applicant actions",
+        "Preserves uncertainty about jurisdiction-specific details"
       ]
     },
     {
       "id": 4,
-      "prompt": "公司差旅政策说：‘Exception requests submitted after booking require VP-level ratification and do not toll the reimbursement deadline.’这句话大家都看得懂单词，但总有人执行错。请从员工实际报销的一条流程讲起，解释触发条件、谁有权批准、时限会不会暂停，以及两个容易误解的地方。",
-      "expected_output": "A process-oriented policy explainer that makes actors, triggers, authority, timing, and misconceptions explicit.",
+      "rule_ids": ["SD-R2", "SD-R3", "SD-R5", "SD-R6"],
+      "prompt": "一篇论文说某干预有显著平均效果，同时报告 subgroup heterogeneity。请做伴读说明：解释平均效果、异质性、预先定义与事后发现的亚组、样本量限制和替代解释。不要把亚组结果写成已经证明的个体化治疗规则。",
+      "expected_output": "A statistically careful companion explanation that distinguishes average effects from subgroup evidence.",
       "files": [],
       "expectations": [
-        "Uses a concrete reimbursement scenario",
-        "Identifies trigger, approver, deadline behavior, and consequence",
-        "Clarifies at least two likely misunderstandings",
-        "Does not invent a specific deadline absent from the source"
+        "Explains the population average and subgroup variation",
+        "Distinguishes pre-specified from post-hoc subgroup analysis",
+        "Discusses sample size and multiple-comparison risk",
+        "Does not turn subgroup findings into individualized certainty"
       ]
     },
     {
       "id": 5,
-      "prompt": "上一个模型给了我一段回答，里面全是‘涌现、反身性、二阶效应、路径依赖、制度摩擦’，每个词我大概知道，但连在一起就不知道它到底在论证什么。请把这段当作论证而不是词典来解压：先说主张，再还原前提、因果链、反例和适用边界。",
-      "expected_output": "An argument-centered reconstruction, not a glossary, with claim, premises, mechanism, objections, and limits.",
+      "rule_ids": ["SD-R1", "SD-R3", "SD-R4", "SD-R5"],
+      "prompt": "面向非专业管理者重写这份安全方案。保留 threat model、trust boundary、least privilege 和 blast radius 等正式词，但用一个真实请求贯穿身份校验、权限授予、执行、审计和失败隔离。",
+      "expected_output": "A manager-readable security narrative that keeps canonical terms and connects them through one request flow.",
       "files": [],
       "expectations": [
-        "Organizes the explanation around the argument rather than isolated terms",
-        "Reconstructs premises and causal links",
-        "Includes counterexamples or objections and scope limits",
-        "Explains terms where they become necessary"
+        "Keeps and grounds the canonical security terms",
+        "Walks one request through authentication, authorization, execution, audit, and containment",
+        "Explains why each boundary exists",
+        "Does not replace technical boundaries with a decorative analogy"
       ]
     },
     {
       "id": 6,
-      "prompt": "I inherited a policy memo that says: ‘Risk acceptance is not risk remediation; residual exposure remains with the accountable executive until control evidence is revalidated.’ Rewrite it for a smart operations manager with no governance background. Keep the official vocabulary, but make the actors, sequence, responsibility, and practical consequence impossible to miss.",
-      "expected_output": "A semantic decompression in English that retains governance vocabulary and makes ownership and lifecycle explicit.",
+      "rule_ids": ["SD-R2", "SD-R3", "SD-R4", "SD-R6"],
+      "prompt": "这段哲学论证名词太密。请先还原主张、前提、中间推理、最强反对意见和适用边界，再解释必要术语。原文没有解决的问题继续标成未解决。",
+      "expected_output": "A walkable argument map that preserves unresolved tensions and explains only necessary terminology.",
       "files": [],
       "expectations": [
-        "Retains and contextualizes risk acceptance, remediation, residual exposure, and control evidence",
-        "Names the responsible actor and sequence",
-        "Explains the practical consequence",
-        "Avoids equating acceptance with resolution"
+        "Separates claim, premises, intermediate reasoning, objections, and scope",
+        "Preserves unresolved issues",
+        "Introduces terminology where the argument needs it",
+        "Does not flatten the argument into a glossary or summary"
       ]
     },
     {
       "id": 7,
-      "prompt": "把下面这个产品复盘做成一个新人也能接手的伴读说明，不要改原文结论：‘Activation uplift was isolated to invited workspaces; self-serve cohorts regressed after the onboarding gate was removed, suggesting channel-quality confounding.’我要知道指标、分群、可能机制、替代解释和下一步应该验证什么。",
-      "expected_output": "A companion explainer that preserves the source conclusion while unpacking metrics, cohorts, confounding, alternatives, and next checks.",
+      "rule_ids": ["SD-R1", "SD-R4", "SD-R5", "SD-R6"],
+      "prompt": "我要给新同事写一份接手教程，素材都在下面。先建立全局心智模型，再选择一个普通请求从入口走到持久化结果，最后说明维护入口、常见失败和下一步阅读。篇幅控制在 1200 字以内。",
+      "expected_output": "A compact handoff that preserves orientation, one full path, maintenance entry points, and failure boundaries under a length constraint.",
       "files": [],
       "expectations": [
-        "Keeps source conclusions distinct from explanatory inference",
-        "Explains cohort and confounding concepts in context",
-        "Offers plausible mechanisms as hypotheses, not facts",
-        "Identifies useful next validation steps"
+        "Gives a minimal global map before local detail",
+        "Uses one representative request as the through-line",
+        "Includes maintenance and failure information",
+        "Respects the length constraint by reducing examples rather than deleting boundaries"
       ]
     },
     {
       "id": 8,
-      "prompt": "请从零讲清楚‘模型对齐不是一个单一指标，而是一组彼此可能冲突的约束’。我希望读完后能向非技术同事复述：为什么会冲突、有哪些典型维度、一次产品决策怎么暴露冲突、为什么不能用一个总分彻底解决。",
-      "expected_output": "A from-zero conceptual tutorial using a concrete product decision and preserving nuance.",
+      "rule_ids": ["SD-R2", "SD-R3", "SD-R5", "SD-R6"],
+      "prompt": "请解释一份性能报告里的 ‘延迟下降 35%’。材料只给了这个百分比，没有基线、样本、分位数、时间窗口或测试环境。把能确定的、不能确定的和继续验证需要什么写清楚。",
+      "expected_output": "A bounded explanation that restores the missing measurement frame without inventing data.",
       "files": [],
       "expectations": [
-        "Begins with an intuitive whole-picture explanation",
-        "Uses a concrete product decision as a running example",
-        "Explains dimensions and conflict mechanisms",
-        "Explains why a single aggregate score is insufficient"
+        "Explains why the percentage alone is insufficient",
+        "Lists the missing baseline, metric, sample, window, and environment",
+        "Keeps the observed claim separate from possible interpretations",
+        "Does not invent performance numbers or a causal mechanism"
       ]
     }
   ]

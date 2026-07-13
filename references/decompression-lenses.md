@@ -1,123 +1,107 @@
 # Semantic Decompression Lenses
 
-只读取与当前材料有关的小节。这里是诊断与重组参考，不是逐项输出模板。仓库级 Authority、覆盖、来源时效与当前状态规则只保存在 [`repository-corpus-mode.md`](repository-corpus-mode.md)。
+Use this file as a diagnostic catalog, not a checklist. Read only the sections that match a named comprehension gap. The six-step process in `SKILL.md` remains the workflow.
 
-## 十二类高熵来源
+## Twelve Common Sources of Compression
 
-### 1. 术语熵
+### 1. Terminology
 
-读者认识单词，却不知道它在当前组织、项目或论证中的本地含义。补充普通含义、本地定义、使用者、生命周期、相邻概念和一个例子，随后继续使用正式术语。
+**Signal:** the reader recognizes the word but not its local meaning, owner, lifecycle, or boundary.
 
-### 2. 背景熵
+**Restore:** plain meaning, local definition, role in the current flow, nearby distinctions, and one bounded example. Continue with the canonical term after grounding it.
 
-文本默认读者知道过去发生过什么。只补会改变理解的历史，包括原问题、关键转折、已做决定和遗留约束。
+### 2. Background
 
-### 3. 因果熵
+**Signal:** the material assumes the reader knows the earlier problem, decision, or constraint.
 
-文本给出 A 和 C，却省略 A 如何导致 C。恢复中间步骤、必要条件、证据和替代原因。
+**Restore:** only the history that changes interpretation: the original pressure, important turn, adopted choice, and remaining constraint.
 
-### 4. 关系熵
+### 3. Causality
 
-组件、观点或指标被列出，却看不出依赖、约束、所有权和信息流。用整体图景或端到端走读把清单变成网络。
+**Signal:** the material gives A and C but skips how A produces C.
 
-### 5. 行动者与权力熵
+**Restore:** the intermediate mechanism, necessary conditions, evidence, and plausible alternative causes.
 
-“被接受”“被处理”“系统决定”等表达隐藏了谁有权做决定。明确提出者、批准者、执行者、所有者和观察者，区分“发出请求”与“请求已生效”。
+### 4. Relationships
 
-### 6. 时间与状态熵
+**Signal:** components, views, or metrics are listed without dependencies, constraints, ownership, or information flow.
 
-当前状态、目标状态、过渡状态、版本和事件顺序混在一起。按“之前、触发、处理中、之后”展开，并标明 current、target、proposal 和 terminal 状态。
+**Restore:** a small map and an end-to-end walkthrough that turns the list into a connected system.
 
-### 7. 抽象层熵
+### 5. Actors and Authority
 
-一句话从商业目标跳到架构原则，再跳到函数或字段。一次处理一个层级，并显式连接目标、能力、架构和实现。
+**Signal:** passive phrases such as “is accepted” or “the system decides” hide who can act.
 
-### 8. 认识状态熵
+**Restore:** proposer, owner, approver, executor, observer, and the difference between requesting a change and making it effective.
 
-事实、决定、愿景、假设和推断使用同样确定的语气。标明认识状态与依据。
+### 6. Time and State
 
-### 9. 数量熵
+**Signal:** current state, target state, transitions, versions, and event order share one paragraph.
 
-百分比、分数、成本或趋势缺少单位、分母、基线、样本或时间窗口。回答量的是什么、相对什么、在多长时间内、变化多大，以及对决策意味着什么。
+**Restore:** before, trigger, in progress, after, terminal or recovery state, and the conditions for entering and leaving each state.
 
-### 10. 指代熵
+### 7. Abstraction Level
 
-“它”“这个”“前者”等跨越太远。重复真正的对象名，让长链路中的主体可追踪。
+**Signal:** a sentence jumps from business goal to architecture rule to function or field.
 
-### 11. 例外熵
+**Restore:** connect one level at a time: goal requires capability, capability shapes architecture, architecture constrains implementation, implementation changes user behavior.
 
-主流程很顺，权限、失败、取消、恢复和特殊情况却藏在括号或尾注。先讲正常路径，再把会改变行为的例外放到对应步骤旁。
+### 8. Recognition State
 
-### 12. 行动熵
+**Signal:** fact, decision, proposal, hypothesis, inference, and speculation use the same confident voice.
 
-读者理解了信息，却不知道对自己意味着什么。说明决策影响、维护入口、排查顺序、下一步或继续阅读的来源。
+**Restore:** label the recognition state and state what supports it.
 
-## 六种常用手法
+### 9. Quantity
 
-### 地图、走读、回看
+**Signal:** a percentage, score, cost, or trend lacks a denominator, baseline, sample, unit, or time window.
 
-先给最小全景，再用一个具体案例穿过全程，最后回到全景解释抽象关系、边界和取舍。
+**Restore:** what was measured, against what, over which period, with what uncertainty, and what the change means for a decision.
 
-### 贯穿示例
+### 10. Reference
 
-选择一个能触发大部分核心概念、但本身不复杂的例子。新概念出现时回到同一例子，减少场景切换。
+**Signal:** “it,” “this,” “the former,” or “the mechanism” has several possible antecedents.
 
-### 术语落地
+**Restore:** repeat the real object name at load-bearing points. Local repetition costs less than ambiguity.
 
-第一次出现时采用：
+### 11. Exceptions
 
-> 正式术语（它在这里实际承担的角色）
+**Signal:** the normal path is clear but permissions, failures, cancellation, recovery, or scope limits are hidden in a note.
 
-随后解释为什么存在、谁使用、位于流程哪里、与什么不同，最后恢复正式术语。
+**Restore:** explain the normal path first, then place each behavior-changing exception next to the step it changes.
 
-### 对照成像
+### 12. Action
 
-相近概念成对解释：各自解决什么、何时发生、由谁拥有，以及把 A 当成 B 会产生什么错误。
+**Signal:** the reader understands the material but cannot tell what to decide, maintain, inspect, or do next.
 
-### 状态阶梯
+**Restore:** decision effect, maintenance entry point, investigation order, next action, or the most useful source to read next.
 
-按进入条件、允许动作、退出条件、失败与恢复讲述生命周期。状态名旁补一句人类意义。
+## Six Techniques
 
-### 认识状态标注
+### Map, Walkthrough, Return
 
-使用“源码当前已经”“规范已经决定”“目标文档期望”“这里建议”“从现有证据可以推断”“材料没有说明”等表达，让证据边界保持可见。
+Give the smallest useful map, follow one concrete case through the system, then return to the map to explain abstractions, tradeoffs, and limits.
 
-## 按内容类型选择路线
+### Through-line Example
 
-### 项目、系统或架构
+Choose one example that activates most core concepts without becoming a second problem to learn. Reuse it when new terms appear.
 
-现实场景、参与者、权限和所有权、对象、一次请求的生命线、正常路径、失败恢复、当前实现、目标状态、不可破坏的边界。
+### Terminology Grounding
 
-### 方案、战略或决策
+At first use, state what the formal term does here. Explain why it exists, who uses it, where it enters the flow, and how it differs from its nearest neighbor. Then use the formal term consistently.
 
-目标、当前问题、假设、可选路径、选择标准、推荐方案、代价风险、领先与滞后指标、复盘条件。说明代价由谁承担、何时出现、是否可逆。
+### Paired Contrast
 
-### 研究、论文或分析
+Explain easily confused concepts together: what each solves, when each occurs, who owns each, and which mistake follows from treating them as interchangeable.
 
-研究问题、重要性、方法、数据、结果支持范围、机制解释、不确定性、局限和不能推出的结论。例子只用于建立直觉。
+### State Ladder
 
-### 政策、规则或合同
+For lifecycles, approvals, tasks, and runtime behavior, show entry condition, allowed actions, exit condition, failure, and recovery for each state. Add one sentence about the human meaning of the state.
 
-适用对象、触发条件、必须或允许的动作、负责机构、时限、例外、违反后果、申诉或补救。权威原文与解释分开。
+### Recognition Labels
 
-### 抽象理论或观点争论
+Use direct phrases such as “the source establishes,” “the team decided,” “the document proposes,” “this explanation infers,” and “the available material does not show.” Apply labels where confusion would change a decision, not to every sentence.
 
-术语定义、核心主张、论证链、关键区分、最强反对意见、回应和适用范围。可以先用思想实验建立直觉，再回到抽象表达。
+## Stop Rule
 
-### 指标、数据或商业报告
-
-指标定义、计算口径、基线、时间窗口、分群、变化、可能机制、替代解释和行动含义。区分相关性、预测与因果。
-
-### 操作指南或流程说明
-
-前置条件、目标结果、每一步的动作与原因、成功信号、常见偏差、恢复方法和结果验证。命令只是动作，原因与反馈信号构成可维护的心智模型。
-
-## 微型示例
-
-**压缩表达：**
-
-> Candidate 只有在 owner 针对当前 frontier 接受后才成为 canonical fact，realtime 只负责 projection。
-
-**语义解压：**
-
-> Agent 生成的回复一开始只是 Candidate，还不能当作频道里的正式消息。拥有最终决定权的 owner 会检查它是否仍对应最新 frontier；只有 owner 明确接受后，它才成为 canonical fact。Realtime 只把已经成立的事实尽快投影到界面，不拥有把 Candidate 变成事实的权力。
+Stop expanding when the reader can traverse the load-bearing route without guessing. Extra definitions, examples, history, or analogies that close no remaining gap are compression in reverse and should be removed.

@@ -1,0 +1,7 @@
+{
+  "snapshot": "2026-07-10",
+  "working_tree": "dirty",
+  "durable_replay": "scaffold",
+  "static_checks": "not_run_for_current_snapshot",
+  "runtime_restart_tests": "not_run"
+}

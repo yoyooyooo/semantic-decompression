@@ -1,135 +1,114 @@
-[中文](README_ZH.md) | **English**
+<p align="center">
+  <strong>English</strong> · <a href="README.zh.md">简体中文</a>
+</p>
 
 # Semantic Decompression
 
-Semantic Decompression turns dense expert material into an explanation a newcomer can follow, retell, and continue working from. It preserves canonical terms, facts, source status, and evidence limits.
+Some material is hard even when every word is familiar. The reader still cannot tell who decides, how state changes, which premise supports a conclusion, or whether a statement describes current reality or a future plan.
 
-It handles two main situations:
+Semantic Decompression restores those missing bridges while preserving canonical terms, facts, evidence strength, and uncertainty.
 
-- A passage or document compresses too many assumptions, terms, causal links, and process steps.
-- A repository or material pack contains semantic authorities, ADRs, code, specs, reports, claims, roadmaps, and stale entry points that each prove different things.
+## A minimal example
 
-## How it differs from nearby tasks
+Compressed:
 
-| Task | Primary goal |
-| --- | --- |
-| Summarization | Reduce information volume |
-| Translation | Change language |
-| Polishing | Improve the surface of the prose |
-| Glossary | Define terms independently |
-| Semantic decompression | Restore omitted context, relationships, process, and limits |
+> The statutory review period starts after substantive completeness, and requests for additional material stop the clock.
 
-A decompressed explanation may be long or short. Its length follows the reader's missing bridges, not a target word count.
+Decompressed:
 
-## The agent workflow
+> Receiving an application does not start the statutory review period. The agency first decides whether the submission is complete enough for formal review. The clock starts only after that decision. If the agency later requests material needed for review, the clock pauses until the response is received and accepted. The reader therefore needs to distinguish submitted, accepted as complete, and under formal review.
 
-`SKILL.md` keeps only the six steps shared by every branch:
+The rewrite keeps the formal rule. It adds the states, trigger, and practical consequence that the original sentence assumed.
 
-```text
-Lock the reader contract
-  -> build the truth ledger
-  -> locate missing bridges
-  -> choose a walkable route
-  -> decompress at the point of need
-  -> deliver and verify
-```
+## Good fits
 
-Every step has a checkable completion criterion. Domain diagnostics and repository rules live in references loaded only when their branch applies.
+- Explain architecture, decisions, research, policy, or dense arguments to a newcomer.
+- Turn term-heavy material into a companion guide, handoff, or from-zero tutorial.
+- Restore actors, causes, state changes, premises, exceptions, and an end-to-end flow.
+- Rewrite for a non-specialist without erasing canonical vocabulary or evidence boundaries.
 
-## Two branches
+This is different from summarization, translation, copyediting, and a glossary. Those tasks reduce, convert, polish, or define. Semantic decompression restores the connections between concepts.
 
-### Single source
+## How it works
 
-The default route is map, walkthrough, return. Give the smallest useful overview, carry one running example through the full chain, then return to the important distinctions, limits, and next action.
+The Skill uses a six-step process: lock the reader contract, build a claim ledger, locate missing bridges, design a walkable route, decompress locally, and run a reader check. The complete operating procedure lives in [`SKILL.md`](SKILL.md); the README does not maintain a second copy.
 
-This branch works for architecture notes, research abstracts, strategy material, policies, arguments, metric reviews, and process documents.
+A typical output does three things:
 
-### Repository and Corpus Mode
+1. Preserves the source conclusion and its evidence boundary.
+2. Walks one representative object from trigger to result.
+3. Introduces formal terms where the real flow needs them instead of front-loading a glossary.
 
-When the task spans a repository, archive, multiple documents, snapshots, or conflicting sources, the skill loads [`references/repository-corpus-mode.md`](references/repository-corpus-mode.md) and adds:
+## Multiple sources
 
-- a Coverage Contract that states what was read, searched, sampled, and left uncovered;
-- Authority discovered by question domain rather than a universal file ranking;
-- a Source Ledger for provenance, freshness, conflicts, and claim ceilings;
-- a Current-State Gate that separates artifact presence, implementation, observed verification, accepted claims, and delivered capability;
-- a Term Registry that preserves canonical names, aliases, definition owners, and scope.
+Several files, versions, or historical reports can change the status, source, or scope of a conclusion. In those cases, the Skill may read [`references/multi-source-boundaries.md`](references/multi-source-boundaries.md) and apply three narrow safeguards:
 
-Repository onboarding output uses four layers:
+- Keep current, target, proposed, historical, and unknown states separate.
+- Keep load-bearing claims traceable to supporting sources and preserve conflicts.
+- Keep the breadth of the conclusion within the material actually inspected or searched.
 
-```text
-one-screen map
-  -> one real route
-  -> current facts versus target state
-  -> authorities, open questions, and next work
-```
+This is an evidence boundary, not a repository audit workflow. Material does not trigger an exhaustive inventory, authority ladder, term registry, or full-repository review merely because it lives in a repository.
 
-## Examples
+## Example requests
 
-```text
-This architecture RFC is too compressed. Keep Candidate, owner, and canonical,
-then explain authority, state transitions, and recovery through one real request.
-```
+Single document:
 
-```text
-Write onboarding material from this repository. The README, spec, and report conflict.
-First determine what each source can prove, then explain current state and the next entry point.
-```
+> Explain this architecture to a new teammate. Keep Candidate, accepted frontier, and canonical Utterance, but restore who has authority, how one request runs, and what recovery looks like after a crash.
 
-```text
-Explain this paper result to a new graduate student. Build intuition first,
-then state the statistical meaning, evidence ceiling, and unsupported conclusions.
-```
+Decision material:
+
+> Do more than expand NRR, ICP, and CAC payback. Explain what each metric constrains in this decision, how they interact, and which tradeoffs the strategy accepts.
+
+Multiple sources:
+
+> Build a handoff from these design notes, current-state files, and historical reports. Separate verified capability, current scaffolding, target state, and unknowns, then state what you actually covered.
 
 ## Installation
 
-Place the extracted `semantic-decompression/` directory in your client's Skills directory. Keep `SKILL.md` and `references/` at their existing relative paths.
+Place the entire `semantic-decompression` directory in the Skills directory supported by your host. Keep the references, evals, and scripts with `SKILL.md`.
 
-Expected structure:
+The Skill remains model-invoked. Natural requests for explanation, onboarding, companion guidance, or a from-zero walkthrough are enough.
+
+## Package layout
 
 ```text
 semantic-decompression/
-├── SKILL.md
-├── README.md
-├── README_ZH.md
-├── VERSION
-├── LICENSE
-├── CHANGELOG.md
-├── references/
-│   ├── decompression-lenses.md
-│   └── repository-corpus-mode.md
-└── evals/
-    ├── evals.json
-    ├── repository-evals.json
-    ├── trigger-eval.json
-    └── fixtures/example-repository/
+  SKILL.md
+  README.md
+  README_EN.md
+  VERSION
+  CHANGELOG.md
+  references/
+    decompression-lenses.md
+    multi-source-boundaries.md
+  evals/
+    evals.json
+    trigger-eval.json
+    multi-source-evals.json
+    fixtures/example-corpus/
+  scripts/
+    check.py
+    check.sh
 ```
 
-## Evaluation assets
+`decompression-lenses.md` is a diagnostic catalog. Read only the sections needed for the current gap. `multi-source-boundaries.md` is a narrow supplement used only when multiple sources materially change the conclusion.
 
-The package includes:
+## Validation
 
-- 8 single-document quality evals;
-- 4 repository-level evals;
-- 27 trigger-boundary cases;
-- one fully synthetic repository fixture.
+Run the static checks with:
 
-The fixture intentionally contains a stale README, future product direction, a static report, a missing validation path, a dirty snapshot, and an unaccepted claim. It tests whether an agent produces fluent prose that exceeds the evidence. No real test material or user project content is included.
+```bash
+bash scripts/check.sh
+```
 
-## What changed in 0.2.1
+The checker covers front matter, JSON, referenced fixture files, relative Markdown links, bilingual entry links, stale filenames, private machine paths, and dash characters.
 
-Version 0.2.0 added repository-level reliability, but the agent entry point grew with it. Version 0.2.1 restores the information hierarchy:
+The evals have three roles:
 
-- `SKILL.md` contains shared steps, branch selection, and completion criteria.
-- Repository-specific Authority, Coverage, Source Ledger, Current-State Gate, and Term Registry rules have one home in their reference.
-- General domain lenses remain in a separate reference.
-- The README explains the project to people without becoming a second runtime rule set.
-
-No capability was removed. The default context is smaller and every branch has a clearer single source of truth.
+- `evals.json` checks reader fit, claim state, missing bridges, a walkable route, and preserved boundaries.
+- `trigger-eval.json` separates this Skill from summarization, translation, polishing, code repair, and ordinary repository work.
+- `multi-source-evals.json` tests state, source, and coverage boundaries without turning the Skill into a repository auditor.
 
 ## Limits
 
-This skill improves understanding. It does not replace legal, medical, financial, or security expertise. It is not an automatic full-repository auditor, and verification strength remains bounded by the available environment, tools, and actual coverage.
-
-## License
-
-MIT
+Semantic decompression can only reconstruct the model supported by the supplied material and available tools. It does not invent missing facts or promote a historical check into current verification. High-risk legal, medical, financial, and security conclusions still require the relevant professional judgment.

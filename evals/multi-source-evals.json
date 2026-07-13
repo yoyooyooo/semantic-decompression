@@ -1,0 +1,58 @@
+{
+  "skill_name": "semantic-decompression",
+  "version": "0.3.0",
+  "scope": "multi-source boundaries only",
+  "evals": [
+    {
+      "id": "MS-1",
+      "rule_ids": ["SD-R2", "SD-MS1", "SD-MS2"],
+      "prompt": "根据这些文件解释 Example Relay 的 durable replay 现在到底处于什么状态。不要做全仓审计，只回答当前、目标、历史验证和未知。",
+      "files": [
+        "evals/fixtures/example-corpus/README.md",
+        "evals/fixtures/example-corpus/docs/current-architecture.md",
+        "evals/fixtures/example-corpus/docs/roadmap.md",
+        "evals/fixtures/example-corpus/reports/static-check.md",
+        "evals/fixtures/example-corpus/status.json"
+      ],
+      "expected_output": "A concise state-bounded explanation that does not promote a stale README, scaffold, or historical static check into a shipped and runtime-verified capability.",
+      "expectations": [
+        "Labels durable replay as current scaffold rather than shipped capability",
+        "Keeps the end-to-end replay behavior as target state",
+        "Limits the historical report to static checks on its named snapshot",
+        "States that current runtime verification is unknown or not run"
+      ]
+    },
+    {
+      "id": "MS-2",
+      "rule_ids": ["SD-MS2"],
+      "prompt": "两份材料都使用 accepted，但含义不同。给新同事解释这个词，保留两个作用域，不要自行规定哪一份文件全局更权威。",
+      "files": [
+        "evals/fixtures/example-corpus/docs/current-architecture.md",
+        "evals/fixtures/example-corpus/docs/research-glossary.md"
+      ],
+      "expected_output": "A scoped term explanation that preserves the runtime and research meanings and does not invent a universal authority hierarchy.",
+      "expectations": [
+        "Explains accepted as canonical commitment in runtime scope",
+        "Explains accepted as admitted for experiment in research scope",
+        "Shows the error caused by treating the two meanings as interchangeable",
+        "Does not declare newer, code-adjacent, or design material universally authoritative"
+      ]
+    },
+    {
+      "id": "MS-3",
+      "rule_ids": ["SD-MS3"],
+      "prompt": "阅读预算只允许检查 README 和 current-architecture.md。写一段新人说明，并在结尾用一句话交代你检查了什么、没有覆盖什么。不要声称已经验证整个仓库。",
+      "files": [
+        "evals/fixtures/example-corpus/README.md",
+        "evals/fixtures/example-corpus/docs/current-architecture.md"
+      ],
+      "expected_output": "A useful but narrowly scoped explanation with a one-sentence coverage note.",
+      "expectations": [
+        "Provides a reader-first explanation rather than a file inventory",
+        "Names the inspected sources",
+        "States that roadmap, reports, status, code, and runtime tests were not covered",
+        "Keeps repository-wide and current-verification claims out of the answer"
+      ]
+    }
+  ]
+}

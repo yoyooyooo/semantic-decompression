@@ -1,102 +1,150 @@
 ---
 name: semantic-decompression
 description: >-
-  Semantic decompression for dense expert material. Use for newcomer-oriented expansion of dense documents, including 去高熵化 and 从 0 到 1 requests; for repository or corpus reconstruction across multiple authorities and current-state evidence; or when another skill needs expert material made teachable rather than summarized.
+  Use semantic decompression when dense expert material must become teachable without losing canonical terms, evidence, uncertainty, or causal structure. Trigger for newcomer explanations, companion guides, handoffs, or rewrites that need hidden premises, actors, state changes, distinctions, and one end-to-end path restored. Works for a passage, document, or a few related sources. Not for plain summarization, translation, copyediting, or code repair.
 ---
 
-# Semantic Decompression / 语义解压
+# Semantic Decompression
 
-补回来源默认读者已经知道的桥梁。增加上下文、关系与过程，同时守住事实和证据边界。
+High-entropy material compresses more meaning than the reader's current context can recover. Restore the missing bridges so the reader can move continuously from their starting point to the source conclusion.
 
-## 不变量
+Default reader: intelligent, new to the local context, and missing the background that the author assumed.
 
-- 保留事实、数字、引用、已接受决定、作用域、例外、不确定性和正式术语。
-- 区分来源原话、来源推断、你的推断与示意例子。
-- 每个新增解释都要关闭一个明确的理解缺口。
-- 默认读者是具备一般能力、但没有当前语境的新接手者。
-- 遵循用户指定的语言、篇幅、语气和交付形式。
+## Outcome Contract
 
-## 选择分支
+- **Outcome:** the reader can explain what is happening, why it happens, who acts, how the sequence runs, how certain each conclusion is, and where the boundaries are.
+- **Done when:** the source meaning, canonical vocabulary, evidence strength, and uncertainty are preserved, and one representative path can be followed from trigger to result.
+- **Evidence:** supplied material, cited sources, verified artifacts, and clearly marked assumptions or hypothetical examples.
+- **Output:** the requested rewrite, explanation, companion guide, tutorial, or handoff. Internal ledgers stay internal unless the user asks to see them.
 
-- **单一来源是默认分支。** 直接执行下面六步。
-- **仓库或素材包分支。** 当任务跨仓库、压缩包、多份文档、快照、冲突来源或当前状态结论时，先读取 [`references/repository-corpus-mode.md`](references/repository-corpus-mode.md)。在第 2 至第 6 步应用其中的来源、覆盖、权威、术语和验证门禁。
-- **领域镜头。** 当材料难以诊断，或属于架构、战略、研究、政策、论证、指标、流程等特定类型时，只读取 [`references/decompression-lenses.md`](references/decompression-lenses.md) 中相关小节。
+## Invariants
 
-## 1. 固定读者契约
+Keep these stable throughout the rewrite:
 
-从请求与材料中确定：
+- facts, numbers, quotations, source attribution, and chronology;
+- the source's actual conclusion and level of confidence;
+- distinctions between fact, decision, proposal, assumption, inference, unknown, and action;
+- canonical domain terms after their local meaning has been established;
+- material disagreements, edge cases, costs, and uncertainty.
 
-- 读者已经知道什么，还缺少什么本地背景；
-- 读完后要理解、判断、执行、维护还是向别人复述；
-- 交付是原文重写、伴读解释、从零教程还是接手文档；
-- 本次范围与所需深度。
+Missing information stays unknown. A useful explanation can state what is missing and why it matters. It cannot fill the gap with a plausible invention.
 
-只有缺失信息会实质改变结果时才提问，否则采用“聪明但无本地上下文的新手”这一默认值。
+## Process
 
-**完成标准：** 能用一句话写出“面向谁，在什么范围内，使其能够完成什么任务”。
+### 1. Lock the Reader Contract
 
-## 2. 建立真相账本
+Determine four things before expanding the material:
 
-提取承重结论，并为每项标记认识状态：
+1. What the reader already knows.
+2. What the reader must be able to do after reading.
+3. Which output form the user requested.
+4. How much scope and depth the task allows.
 
-- 已观察事实或可核验数据；
-- 已接受决定；
-- 提案、目标或尚未采纳的方案；
-- 来源自身的推断；
-- 你的解释性推断或示意例子；
-- 未知、缺失或来源冲突；
-- 读者必须采取的动作与遵守的约束。
+When the user gives no audience, use the default newcomer. When the user gives a strict length, preserve the claim ledger and the most load-bearing bridges before adding examples.
 
-为承重结论保留来源指针。材料没有说明的内容保持未知，不用流畅叙事填空。
+**Done when:** reader starting point, after-reading task, output form, and scope are explicit or deliberately defaulted.
 
-**完成标准：** 每个承重结论都有认识状态和依据，冲突仍然可见。
+### 2. Build the Claim Ledger
 
-## 3. 定位缺失桥梁
+Classify every load-bearing statement as one of:
 
-只找会让目标读者掉队的缺口：
+- **Fact:** directly supported by the material or verified artifact.
+- **Decision:** an adopted choice, rule, or commitment.
+- **Proposal:** a suggested future choice.
+- **Assumption:** a premise the reasoning depends on.
+- **Inference:** a conclusion derived from evidence rather than stated directly.
+- **Unknown:** information the material does not establish.
+- **Action:** a requested or recommended next step.
 
-- 正式术语缺少本地含义；
-- 动作缺少行动者、所有者或决定权；
-- 组件、观点或指标缺少关系与因果；
-- 流程缺少触发、状态、时间或恢复路径；
-- 数字缺少单位、基线、窗口、分群或证据等级；
-- 例外、边界与下一步被省略。
+Keep the source's recognition state. A proposal remains proposed. A historical result remains historical. A local observation does not become a universal rule.
 
-**完成标准：** 每个计划新增的段落都能对应一个具体缺口，没有泛化背景和装饰性扩写。
+When one load-bearing conclusion depends on several files, versions, or reports and state, source, or coverage could change its meaning, read [`references/multi-source-boundaries.md`](references/multi-source-boundaries.md). Do not load that reference for ordinary single-source work or merely because the material is stored in a repository.
 
-## 4. 设计可行走的路线
+**Done when:** every load-bearing conclusion has a stable recognition state and no statement has gained certainty during rewriting.
 
-默认采用“地图、走读、回看”：
+### 3. Map the Missing Bridges
 
-1. 用最小全景说明现实问题和整体关系；
-2. 选一个代表性案例，从开始到结束走完整条链；
-3. 回到全局解释关键区别、取舍、失败方式和下一步。
+Find what the reader must currently guess. Common gaps include:
 
-让同一个贯穿示例承载尽可能多的概念。短回答可以压缩层数，但仍保留方向、过程和边界。
+- local terminology and assumed background;
+- hidden premises and omitted causal steps;
+- actors, ownership, authority, and handoffs;
+- sequence, state transitions, failure, recovery, and exit conditions;
+- jumps between business, architecture, implementation, and user impact;
+- missing baselines, denominators, time windows, or comparison classes;
+- ambiguous references, compressed exceptions, and absent next actions.
 
-**完成标准：** 读者进入细节前知道自己位于哪张地图，离开细节后能把它放回整体。
+For long, cross-domain, or hard-to-diagnose material, read only the relevant sections of [`references/decompression-lenses.md`](references/decompression-lenses.md).
 
-## 5. 在需要处解压
+**Done when:** every planned addition closes a named comprehension gap. Content that closes no gap is removed.
 
-按信息类型恢复被省略的链路：
+### 4. Design a Walkable Route
 
-- **术语：** 普通含义、本地角色、存在原因、使用者、相邻概念和例子。第一次落地后继续使用正式术语。
-- **机制：** 触发条件、行动者、输入、动作或状态变化、产出、下一状态，以及重要失败与恢复。
-- **决策：** 问题、约束、选项、选择、理由、收益、代价和当前采纳状态。
-- **论证或研究：** 主张、前提、机制、证据、替代解释、支持上限和不能推出的结论。
-- **指标：** 定义、单位、基线、窗口、分群、变化、现实含义和单项指标无法证明的内容。
+Prefer a natural route over a glossary or component inventory:
 
-**完成标准：** 关键名词有本地角色，关键动作有行动者，关键结论有可追踪的理由。
+1. Start with the real situation the reader encounters.
+2. Show the pressure, failure, or decision that makes the system necessary.
+3. Give the smallest useful map of actors, objects, and relationships.
+4. Follow one representative object from trigger to result.
+5. Introduce each formal term where that walkthrough needs it.
+6. Return to the map to explain alternatives, tradeoffs, boundaries, and important failure paths.
+7. End with the decision, action, or reading path the user needs.
 
-## 6. 交付并验收
+Use one through-line example when possible. Mark an invented example as hypothetical and never let it supply evidence for a factual claim.
 
-按用户目标选择成品：
+**Done when:** one representative path includes its trigger, actors, state changes, result, and any failure or recovery branch that changes the reader's decision.
 
-- 要替换原文时，输出重组后的正文；
-- 原文仍是权威时，输出伴读层并明确对应关系；
-- 从零生成时，从现实问题和贯穿示例开始；
-- 篇幅受限时，保留“一句全景、一次走读、关键区别、行动结论”。
+### 5. Decompress Locally
 
-交付前确认读者能够回答：这件事解决什么，谁参与，流程怎样走，关键术语在此处指什么，哪些是事实或推断，边界和失败方式是什么，接下来能做什么。再次核对数字、引用、不确定性和来源状态。仓库分支还要写明覆盖与当前状态边界。
+Add only the explanation needed at the current point.
 
-**完成标准：** 目标读者能复述整体模型和一个真实案例，正确使用关键术语，并且不会得到超出证据的结论。
+For a **term**, explain its local role, why it exists, who uses it, where it appears in the flow, and what nearby concept it is often confused with.
+
+For a **process**, restore trigger, actor, input, action or state change, output, next step, and relevant failure or recovery conditions.
+
+For a **decision**, restore the problem, constraints, rejected alternatives, tradeoffs, assumptions, and evidence that would change the choice.
+
+For an **argument**, restore claim, premises, intermediate reasoning, counterarguments, scope, and confidence.
+
+For **data**, restore measure, denominator, baseline, sample, time window, uncertainty, and practical consequence.
+
+For a **policy or rule**, restore who triggers it, who decides, deadlines, state changes, exceptions, remedies, and what the affected person should do.
+
+Introduce canonical vocabulary after plain-language grounding, then continue using the canonical term. Keep examples concrete, bounded, and subordinate to the source.
+
+**Done when:** each paragraph contributes a new bridge, distinction, example, or boundary. It does not restate the preceding paragraph in different words.
+
+### 6. Run the Reader Check
+
+Before delivery, test whether the intended reader can answer:
+
+- What is this and why does it exist?
+- Who acts, owns, decides, approves, executes, or observes?
+- What happens first, next, and last?
+- Which states or concepts must remain distinct?
+- Which claims are established, proposed, inferred, assumed, or unknown?
+- What fails, what recovers, and where does the explanation stop?
+- What should the reader do or read next?
+
+Then compare the output with the source. Confirm that terms, numbers, chronology, conclusion, evidence strength, and uncertainty have not drifted.
+
+**Done when:** the reader can traverse the explanation without guessing a load-bearing bridge, and the output makes no stronger claim than the source supports.
+
+## Output Shapes
+
+Match the user's requested artifact:
+
+- **Rewrite:** return the rewritten material and preserve the original conclusion and useful structure.
+- **Companion guide:** keep the source intact and add a separate map, walkthrough, distinctions, and boundaries.
+- **From-zero tutorial:** establish the global model before local detail and keep one example running through the explanation.
+- **Handoff:** add ownership, maintenance entry points, failure paths, current unknowns, and next actions.
+- **Length-constrained answer:** keep the conclusion, recognition state, and key bridge; reduce the number of examples before cutting boundaries.
+
+Do not expose the Reader Contract, Claim Ledger, or Bridge Map as a template unless the user asks for the analysis itself.
+
+## Reference Loading
+
+- Read [`references/decompression-lenses.md`](references/decompression-lenses.md) only when a named comprehension gap needs a diagnostic lens or technique.
+- Read [`references/multi-source-boundaries.md`](references/multi-source-boundaries.md) only when multiple sources materially affect state, provenance, or coverage.
+
+The main process remains the source of truth. References supply branch-specific detail and do not define a second workflow.
