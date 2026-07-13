@@ -15,20 +15,22 @@ ERRORS: list[str] = []
 EXPECTED = [
     "SKILL.md",
     "README.md",
-    "README_EN.md",
-    "VERSION",
-    "CHANGELOG.md",
+    "README.zh.md",
+    "LICENSE",
     "references/decompression-lenses.md",
     "references/multi-source-boundaries.md",
+    "evals/README.md",
     "evals/evals.json",
     "evals/trigger-eval.json",
     "evals/multi-source-evals.json",
+    "scripts/check.py",
+    "scripts/check.sh",
 ]
 
 ACTIVE_TEXT_FILES = [
     ROOT / "SKILL.md",
     ROOT / "README.md",
-    ROOT / "README_EN.md",
+    ROOT / "README.zh.md",
     ROOT / "references/decompression-lenses.md",
     ROOT / "references/multi-source-boundaries.md",
 ]
@@ -125,10 +127,12 @@ def check_markdown_links() -> None:
 
 
 def check_bilingual_entry_links() -> None:
-    if "[English](README_EN.md)" not in read(ROOT / "README.md"):
-        fail("README.md is missing the English entry link")
-    if "[中文](README.md)" not in read(ROOT / "README_EN.md"):
-        fail("README_EN.md is missing the Chinese entry link")
+    english = read(ROOT / "README.md")
+    chinese = read(ROOT / "README.zh.md")
+    if 'href="README.zh.md"' not in english:
+        fail("README.md is missing the Simplified Chinese entry link")
+    if 'href="README.md"' not in chinese:
+        fail("README.zh.md is missing the English entry link")
 
 
 def check_active_text() -> None:
