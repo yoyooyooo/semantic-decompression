@@ -4,111 +4,83 @@
 
 # Semantic Decompression
 
-Some material is hard even when every word is familiar. The reader still cannot tell who decides, how state changes, which premise supports a conclusion, or whether a statement describes current reality or a future plan.
+Make dense material understandable without losing its meaning.
 
-Semantic Decompression restores those missing bridges while preserving canonical terms, facts, evidence strength, and uncertainty.
+Semantic Decompression is an instruction-only skill that restores the context and connections an author assumed the reader already knew. It preserves formal terms, source claims, and uncertainty while explaining who acts, what changes, why a conclusion follows, and where the evidence stops.
 
-## A minimal example
+## When to use it
 
-Compressed:
+Use the skill when understanding requires more than a summary or a glossary: onboarding to an unfamiliar architecture, following a compressed argument, interpreting a measurement, or turning expert notes into a companion guide or handoff.
+
+The depth follows the task. A narrow distinction may need two sentences; a complete tutorial may need a map, one continuing example, and a discussion of boundaries. The skill does not impose a fixed output template.
+
+Pure summaries, literal translations, copyediting, archive extraction, and code fixes are not implicit triggers. In a mixed request, the skill handles the explanatory portion without taking over the rest of the task.
+
+## Example
+
+The following fragment is a teaching example, not a rule for a real legal system.
+
+**Source**
 
 > The statutory review period starts after substantive completeness, and requests for additional material stop the clock.
 
-Decompressed:
+**Explanation**
 
-> Receiving an application does not start the statutory review period. The agency first decides whether the submission is complete enough for formal review. The clock starts only after that decision. If the agency later requests material needed for review, the clock pauses until the response is received and accepted. The reader therefore needs to distinguish submitted, accepted as complete, and under formal review.
+> Submission alone is not the stated condition for starting the review clock; the submission must reach substantive completeness. A request for additional material stops that clock. The fragment does not identify who decides completeness, the applicable deadline, or what restarts the clock. In particular, it does not say that merely sending the additional material is enough to resume counting.
 
-The rewrite keeps the formal rule. It adds the states, trigger, and practical consequence that the original sentence assumed.
-
-## Good fits
-
-- Explain architecture, decisions, research, policy, or dense arguments to a newcomer.
-- Turn term-heavy material into a companion guide, handoff, or from-zero tutorial.
-- Restore actors, causes, state changes, premises, exceptions, and an end-to-end flow.
-- Rewrite for a non-specialist without erasing canonical vocabulary or evidence boundaries.
-
-This is different from summarization, translation, copyediting, and a glossary. Those tasks reduce, convert, polish, or define. Semantic decompression restores the connections between concepts.
-
-## How it works
-
-The Skill uses a six-step process: lock the reader contract, build a claim ledger, locate missing bridges, design a walkable route, decompress locally, and run a reader check. The complete operating procedure lives in [`SKILL.md`](SKILL.md); the README does not maintain a second copy.
-
-A typical output does three things:
-
-1. Preserves the source conclusion and its evidence boundary.
-2. Walks one representative object from trigger to result.
-3. Introduces formal terms where the real flow needs them instead of front-loading a glossary.
-
-## Multiple sources
-
-Several files, versions, or historical reports can change the status, source, or scope of a conclusion. In those cases, the Skill may read [`references/multi-source-boundaries.md`](references/multi-source-boundaries.md) and apply three narrow safeguards:
-
-- Keep current, target, proposed, historical, and unknown states separate.
-- Keep load-bearing claims traceable to supporting sources and preserve conflicts.
-- Keep the breadth of the conclusion within the material actually inspected or searched.
-
-This is an evidence boundary, not a repository audit workflow. Material does not trigger an exhaustive inventory, authority ladder, term registry, or full-repository review merely because it lives in a repository.
-
-## Example requests
-
-Single document:
-
-> Explain this architecture to a new teammate. Keep Candidate, accepted frontier, and canonical Utterance, but restore who has authority, how one request runs, and what recovery looks like after a crash.
-
-Decision material:
-
-> Do more than expand NRR, ICP, and CAC payback. Explain what each metric constrains in this decision, how they interact, and which tradeoffs the strategy accepts.
-
-Multiple sources:
-
-> Build a handoff from these design notes, current-state files, and historical reports. Separate verified capability, current scaffolding, target state, and unknowns, then state what you actually covered.
+The missing distinction becomes clear without inventing the missing rule.
 
 ## Installation
 
-Place the entire `semantic-decompression` directory in the Skills directory supported by your host. Keep the references, evals, and scripts with `SKILL.md`.
-
-The Skill remains model-invoked. Natural requests for explanation, onboarding, companion guidance, or a from-zero walkthrough are enough.
-
-## Package layout
+Place the runtime files in a directory named `semantic-decompression` inside your host's supported skill location:
 
 ```text
 semantic-decompression/
   SKILL.md
-  README.md
-  README_EN.md
-  VERSION
-  CHANGELOG.md
   references/
     decompression-lenses.md
     multi-source-boundaries.md
-  evals/
-    evals.json
-    trigger-eval.json
-    multi-source-evals.json
-    fixtures/example-corpus/
-  scripts/
-    check.py
-    check.sh
 ```
 
-`decompression-lenses.md` is a diagnostic catalog. Read only the sections needed for the current gap. `multi-source-boundaries.md` is a narrow supplement used only when multiple sources materially change the conclusion.
+Keep the relative paths intact. Copying the complete repository is also supported; only the files above are runtime guidance. Before updating, preserve local modifications and avoid enabling duplicate copies of the same skill.
 
-## Validation
+The host controls discovery, activation, permissions, and model selection. Use its documented skill location and invocation mechanism. This project does not require a specific model, executable scripts, package dependencies, or API keys. Source retrieval, when needed, uses the tools provided by the host.
 
-Run the static checks with:
+## Usage
 
-```bash
-bash scripts/check.sh
-```
+Ask for the explanation you need, including any audience, source, or format constraints:
 
-The checker covers front matter, JSON, referenced fixture files, relative Markdown links, bilingual entry links, stale filenames, private machine paths, and dash characters.
+> Explain this architecture to a new teammate. Preserve the canonical terms, walk through the supported flow, and leave missing recovery behavior unknown.
 
-The evals have three roles:
+> I know the basics. Explain only the distinction between accepted input and committed output, in two sentences.
 
-- `evals.json` checks reader fit, claim state, missing bridges, a walkable route, and preserved boundaries.
-- `trigger-eval.json` separates this Skill from summarization, translation, polishing, code repair, and ordinary repository work.
-- `multi-source-evals.json` tests state, source, and coverage boundaries without turning the Skill into a repository auditor.
+> Translate this paragraph, then explain its assumptions. Return only the requested JSON fields.
+
+The workflow is defined in [`SKILL.md`](SKILL.md). It fits the reader, anchors the claims, identifies the missing connection, chooses an appropriate route, explains at the point of need, and checks the result against the source.
+
+The references are optional. [Decompression lenses](references/decompression-lenses.md) helps diagnose a difficult comprehension gap. [Multi-source boundaries](references/multi-source-boundaries.md) handles source differences that change a claim's status, provenance, or coverage. A source being stored in a repository does not by itself call for a repository audit.
+
+## Project files
+
+| Path | Purpose |
+| --- | --- |
+| [`SKILL.md`](SKILL.md) | Runtime entry and workflow |
+| [`references/`](references/) | Conditional guidance for specific gaps |
+| [`evals/`](evals/) | Evaluation cases, synthetic fixtures, and grading guidance |
+| [`VERSION`](VERSION) | Project version |
+| [`CHANGELOG.md`](CHANGELOG.md) | User-visible changes |
+| [`LICENSE`](LICENSE) | MIT license |
+
+README files, version history, and evaluation materials are for users and maintainers; they are not additional runtime instructions.
+
+## Evaluation
+
+The [evaluation guide](evals/README.md) defines source isolation, rule traceability, grading, and version comparisons. The suites cover explanation quality, source boundaries, output constraints, and skill selection.
+
+Test definitions are not execution results. Package integrity, explanation quality, and host activation are separate forms of evidence; passing one does not establish the others.
 
 ## Limits
 
-Semantic decompression can only reconstruct the model supported by the supplied material and available tools. It does not invent missing facts or promote a historical check into current verification. High-risk legal, medical, financial, and security conclusions still require the relevant professional judgment.
+A fluent explanation cannot replace missing evidence. The skill may explain general concepts, identify unknowns, and label supported inferences or hypothetical examples, but must not present them as facts established by the source. Source fidelity does not require endorsing an error: a supported correction is distinguished from the original claim.
+
+The user's requested audience, language, structure, length, and source scope govern the explanation within the host's system and developer constraints.

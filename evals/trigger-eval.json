@@ -1,24 +1,152 @@
 [
-  {"query":"这段 Agent 架构说明压得太紧。保留正式术语，给新接手者讲清楚一条请求怎样跑、谁有权决定、失败后怎样恢复。","should_trigger":true,"branch":"single-source explanation"},
-  {"query":"这份董事会材料全是 NRR、ICP、payback、operating leverage。帮我讲清楚它到底在做什么决策以及代价。","should_trigger":true,"branch":"decision explanation"},
-  {"query":"把这条政策从员工实际操作的角度展开：谁触发、谁审批、什么时候截止、出错怎么补救。","should_trigger":true,"branch":"policy walkthrough"},
-  {"query":"我要给新同事写一份从 0 到 1 的接手教程，素材都在下面，但请先建立全局心智模型再讲组件。","should_trigger":true,"branch":"handoff"},
-  {"query":"这段哲学论证名词太密，帮我还原主张、前提、推理步骤、反对意见和边界。","should_trigger":true,"branch":"argument map"},
-  {"query":"请把这份数据分析做成伴读说明：指标口径、分群、基线、可能机制和替代解释都展开。","should_trigger":true,"branch":"data companion"},
-  {"query":"面向非专业管理者重写这份安全方案，既讲人话又保留 threat model、trust boundary 等正式词。","should_trigger":true,"branch":"audience rewrite"},
-  {"query":"根据这三份设计、当前状态和历史报告写接手说明，区分已验证能力、Scaffold、目标和未知，并说明覆盖范围。","should_trigger":true,"branch":"multi-source boundaries"},
-  {"query":"Explain this protocol to a new engineer. Keep the canonical terms and walk one message from input through failure recovery.","should_trigger":true,"branch":"single-source explanation"},
-  {"query":"Turn these research notes into a companion guide that restores premises, evidence strength, counterarguments, and unresolved questions.","should_trigger":true,"branch":"research companion"},
-  {"query":"帮我解压 /mnt/data/archive.zip 到当前目录。","should_trigger":false,"branch":"archive extraction"},
-  {"query":"把下面 1200 字总结成三条 bullet，每条不超过 20 个字。","should_trigger":false,"branch":"summary"},
-  {"query":"把这句话从英文直译成中文，不需要解释。","should_trigger":false,"branch":"translation"},
-  {"query":"帮我润色这封邮件，让语气更礼貌，但不要改变内容结构。","should_trigger":false,"branch":"copyediting"},
-  {"query":"检查下面这段 Rust 代码有没有 borrow checker 错误并直接修复。","should_trigger":false,"branch":"code repair"},
-  {"query":"根据这些数字生成一个折线图和 CSV，不需要文字分析。","should_trigger":false,"branch":"data artifact"},
-  {"query":"给这个产品起十个名字，偏未来感。","should_trigger":false,"branch":"naming"},
-  {"query":"把下面的技术说明改成更正式的公文语气，读者背景不变。","should_trigger":false,"branch":"tone rewrite"},
-  {"query":"逐字校对下面合同中的错别字和标点，法律措辞不要解释。","should_trigger":false,"branch":"proofreading"},
-  {"query":"扫描这个仓库里的所有 TODO，按目录列出来，不需要解释架构。","should_trigger":false,"branch":"repository inventory"},
-  {"query":"修复这个仓库的失败测试并提交代码。","should_trigger":false,"branch":"repository coding"},
-  {"query":"为这份 API 写 OpenAPI schema，字段已经列出。","should_trigger":false,"branch":"schema generation"}
+  {
+    "query": "这段 Agent 架构说明压得太紧。保留正式术语，给新接手者讲清楚一条请求怎样跑、谁有权决定、失败后怎样恢复。",
+    "should_trigger": true,
+    "branch": "single-source explanation"
+  },
+  {
+    "query": "这份董事会材料全是 NRR、ICP、payback、operating leverage。帮我讲清楚它到底在做什么决策以及代价。",
+    "should_trigger": true,
+    "branch": "decision explanation"
+  },
+  {
+    "query": "把这条政策从员工实际操作的角度展开：谁触发、谁审批、什么时候截止、出错怎么补救。",
+    "should_trigger": true,
+    "branch": "policy walkthrough"
+  },
+  {
+    "query": "我要给新同事写一份从 0 到 1 的接手教程，素材都在下面，但请先建立全局心智模型再讲组件。",
+    "should_trigger": true,
+    "branch": "handoff"
+  },
+  {
+    "query": "这段哲学论证名词太密，帮我还原主张、前提、推理步骤、反对意见和边界。",
+    "should_trigger": true,
+    "branch": "argument map"
+  },
+  {
+    "query": "请把这份数据分析做成伴读说明：指标口径、分群、基线、可能机制和替代解释都展开。",
+    "should_trigger": true,
+    "branch": "data companion"
+  },
+  {
+    "query": "面向非专业管理者重写这份安全方案，既讲人话又保留 threat model、trust boundary 等正式词。",
+    "should_trigger": true,
+    "branch": "audience rewrite"
+  },
+  {
+    "query": "根据这三份设计、当前状态和历史报告写接手说明，区分已验证能力、Scaffold、目标和未知，并说明覆盖范围。",
+    "should_trigger": true,
+    "branch": "multi-source boundaries"
+  },
+  {
+    "query": "Explain this protocol to a new engineer. Keep the canonical terms and walk one message from input through failure recovery.",
+    "should_trigger": true,
+    "branch": "single-source explanation"
+  },
+  {
+    "query": "Turn these research notes into a companion guide that restores premises, evidence strength, counterarguments, and unresolved questions.",
+    "should_trigger": true,
+    "branch": "research companion"
+  },
+  {
+    "query": "帮我解压 /mnt/data/archive.zip 到当前目录。",
+    "should_trigger": false,
+    "branch": "archive extraction"
+  },
+  {
+    "query": "把下面 1200 字总结成三条 bullet，每条不超过 20 个字。",
+    "should_trigger": false,
+    "branch": "summary"
+  },
+  {
+    "query": "把这句话从英文直译成中文，不需要解释。",
+    "should_trigger": false,
+    "branch": "translation"
+  },
+  {
+    "query": "帮我润色这封邮件，让语气更礼貌，但不要改变内容结构。",
+    "should_trigger": false,
+    "branch": "copyediting"
+  },
+  {
+    "query": "检查下面这段 Rust 代码有没有 borrow checker 错误并直接修复。",
+    "should_trigger": false,
+    "branch": "code repair"
+  },
+  {
+    "query": "根据这些数字生成一个折线图和 CSV，不需要文字分析。",
+    "should_trigger": false,
+    "branch": "data artifact"
+  },
+  {
+    "query": "给这个产品起十个名字，偏未来感。",
+    "should_trigger": false,
+    "branch": "naming"
+  },
+  {
+    "query": "把下面的技术说明改成更正式的公文语气，读者背景不变。",
+    "should_trigger": false,
+    "branch": "tone rewrite"
+  },
+  {
+    "query": "逐字校对下面合同中的错别字和标点，法律措辞不要解释。",
+    "should_trigger": false,
+    "branch": "proofreading"
+  },
+  {
+    "query": "扫描这个仓库里的所有 TODO，按目录列出来，不需要解释架构。",
+    "should_trigger": false,
+    "branch": "repository inventory"
+  },
+  {
+    "query": "修复这个仓库的失败测试并提交代码。",
+    "should_trigger": false,
+    "branch": "repository coding"
+  },
+  {
+    "query": "为这份 API 写 OpenAPI schema，字段已经列出。",
+    "should_trigger": false,
+    "branch": "schema generation"
+  },
+  {
+    "query": "先翻译这段英文，再给新同事讲清楚概念之间的关系。",
+    "should_trigger": true,
+    "branch": "mixed translation and explanation"
+  },
+  {
+    "query": "只用一句话给我讲清楚为什么接收成功不等于处理完成。",
+    "should_trigger": true,
+    "branch": "length-constrained explanation"
+  },
+  {
+    "query": "我熟悉数据库。只展开文中“快照一致性”和“实时性”的差别，不用从基础讲。",
+    "should_trigger": true,
+    "branch": "expert local explanation"
+  },
+  {
+    "query": "$semantic-decompression 只按原文直译下面这句话，不要解释。",
+    "should_trigger": true,
+    "branch": "explicit invocation; user task still controls output"
+  },
+  {
+    "query": "用人话给新同事讲清楚这段内容的因果和限制，但输出必须是 JSON。",
+    "should_trigger": true,
+    "branch": "structured explanation"
+  },
+  {
+    "query": "只列出这篇文章里的缩写及其全称，不要解释关系。",
+    "should_trigger": false,
+    "branch": "acronym extraction"
+  },
+  {
+    "query": "请生成一个 Python zlib 解压函数。",
+    "should_trigger": false,
+    "branch": "compression code"
+  },
+  {
+    "query": "只查找文档里出现 semantic-decompression 的行号，不要解释。",
+    "should_trigger": false,
+    "branch": "literal text search"
+  }
 ]
