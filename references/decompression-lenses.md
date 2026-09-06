@@ -1,107 +1,91 @@
 # Semantic Decompression Lenses
 
-Use this file as a diagnostic catalog, not a checklist. Read only the sections that match a named comprehension gap. The six-step process in `SKILL.md` remains the workflow.
+Consult only the sections that help a specific comprehension gap. These are diagnostic questions, not facts to supply or a checklist to print. The six moves in `SKILL.md` remain the workflow. Skip irrelevant dimensions; mark unsupported details as unknown.
 
-## Twelve Common Sources of Compression
+## Terminology
 
-### 1. Terminology
+**Signal:** a familiar word has an unfamiliar local role.
 
-**Signal:** the reader recognizes the word but not its local meaning, owner, lifecycle, or boundary.
+**Restore:** the role, nearest confusing concept, and a bounded example when useful. Introduce the formal term at the point of need and then retain it. Do not invent an owner or lifecycle for every abstract concept.
 
-**Restore:** plain meaning, local definition, role in the current flow, nearby distinctions, and one bounded example. Continue with the canonical term after grounding it.
+## Background
 
-### 2. Background
+**Signal:** an earlier problem, choice, or constraint is silently assumed.
 
-**Signal:** the material assumes the reader knows the earlier problem, decision, or constraint.
+**Restore:** only the history needed to understand the present statement. Distinguish source history from general background.
 
-**Restore:** only the history that changes interpretation: the original pressure, important turn, adopted choice, and remaining constraint.
+## Causality
 
-### 3. Causality
+**Signal:** the material jumps from A to C.
 
-**Signal:** the material gives A and C but skips how A produces C.
+**Restore:** the supported mechanism or premise connecting them, conditions, and relevant alternative explanations. When the mechanism is absent, say what relationship is observed and what causal inference remains unproven.
 
-**Restore:** the intermediate mechanism, necessary conditions, evidence, and plausible alternative causes.
+## Relationships
 
-### 4. Relationships
+**Signal:** an inventory of components or metrics hides their interactions.
 
-**Signal:** components, views, or metrics are listed without dependencies, constraints, ownership, or information flow.
+**Restore:** the dependencies, ownership, constraints, or information flow relevant to the reader. A small map followed by one case often helps.
 
-**Restore:** a small map and an end-to-end walkthrough that turns the list into a connected system.
+## Actors and Authority
 
-### 5. Actors and Authority
+**Signal:** passive wording hides who requests, decides, approves, executes, or observes.
 
-**Signal:** passive phrases such as “is accepted” or “the system decides” hide who can act.
+**Restore:** the named roles and the distinction between proposing a change and making it effective. Identify an unspecified decision-maker as unspecified; do not silently appoint one.
 
-**Restore:** proposer, owner, approver, executor, observer, and the difference between requesting a change and making it effective.
+## Time and State
 
-### 6. Time and State
+**Signal:** present capability, future intent, event order, or recovery is mixed together.
 
-**Signal:** current state, target state, transitions, versions, and event order share one paragraph.
+**Restore:** the relevant before-and-after conditions, transitions, and limits. Existence of a state does not establish its persistence, retry behavior, or recovery guarantees.
 
-**Restore:** before, trigger, in progress, after, terminal or recovery state, and the conditions for entering and leaving each state.
+## Abstraction Level
 
-### 7. Abstraction Level
+**Signal:** a sentence jumps between a business goal, an architecture rule, and an implementation detail.
 
-**Signal:** a sentence jumps from business goal to architecture rule to function or field.
+**Restore:** the connection between adjacent levels that the source supports. Do not derive an implementation from a goal as though it already exists.
 
-**Restore:** connect one level at a time: goal requires capability, capability shapes architecture, architecture constrains implementation, implementation changes user behavior.
+## Claim Status
 
-### 8. Recognition State
+**Signal:** observations, decisions, proposals, and inferences share one confident voice.
 
-**Signal:** fact, decision, proposal, hypothesis, inference, and speculation use the same confident voice.
+**Restore:** what is established, who adopted a decision, what is merely proposed, and what remains unknown. Label at consequential points rather than mechanically prefixing every sentence.
 
-**Restore:** label the recognition state and state what supports it.
+## Quantity
 
-### 9. Quantity
+**Signal:** a percentage, score, cost, or trend has no comparison frame.
 
-**Signal:** a percentage, score, cost, or trend lacks a denominator, baseline, sample, unit, or time window.
+**Restore:** the measure, unit, denominator, baseline, sample, time window, and uncertainty that are available. Explain the consequence of missing fields. Never substitute invented numbers for missing evidence.
 
-**Restore:** what was measured, against what, over which period, with what uncertainty, and what the change means for a decision.
+## Reference
 
-### 10. Reference
+**Signal:** “it,” “this,” or “the mechanism” has several plausible meanings.
 
-**Signal:** “it,” “this,” “the former,” or “the mechanism” has several possible antecedents.
+**Restore:** the actual object name at points where ambiguity matters. Useful local repetition is better than an unclear pronoun.
 
-**Restore:** repeat the real object name at load-bearing points. Local repetition costs less than ambiguity.
+## Exceptions
 
-### 11. Exceptions
+**Signal:** permissions, failures, cancellation, or scope restrictions alter the normal story.
 
-**Signal:** the normal path is clear but permissions, failures, cancellation, recovery, or scope limits are hidden in a note.
+**Restore:** the relevant exception next to the step or claim it qualifies. Do not add a generic risk checklist to an otherwise bounded explanation.
 
-**Restore:** explain the normal path first, then place each behavior-changing exception next to the step it changes.
+## Action
 
-### 12. Action
+**Signal:** the requested handoff or decision guide leaves the reader unable to act.
 
-**Signal:** the reader understands the material but cannot tell what to decide, maintain, inspect, or do next.
+**Restore:** the supported owner, maintenance entry point, next check, or decision consequence. A conceptual explanation does not automatically need a follow-up task.
 
-**Restore:** decision effect, maintenance entry point, investigation order, next action, or the most useful source to read next.
+## Techniques
 
-## Six Techniques
+**Map, walkthrough, return:** orient the reader, follow one supported case, then explain the limits. Best for processes and systems.
 
-### Map, Walkthrough, Return
+**Through-line example:** reuse one bounded example when it saves the reader from learning several scenarios. Mark hypothetical details at introduction; they are not evidence about the real system.
 
-Give the smallest useful map, follow one concrete case through the system, then return to the map to explain abstractions, tradeoffs, and limits.
+**Paired contrast:** explain two easily confused concepts together, including the practical mistake caused by merging them.
 
-### Through-line Example
+**State ladder:** show entry, change, exit, and relevant recovery only when lifecycle is the actual gap. Preserve unknown transitions.
 
-Choose one example that activates most core concepts without becoming a second problem to learn. Reuse it when new terms appear.
+**Premise bridge:** for an argument, connect premises to the conclusion and expose the extra assumption required by a disputed step. Do not force actors or runtime stages onto an argument.
 
-### Terminology Grounding
+## Stop
 
-At first use, state what the formal term does here. Explain why it exists, who uses it, where it enters the flow, and how it differs from its nearest neighbor. Then use the formal term consistently.
-
-### Paired Contrast
-
-Explain easily confused concepts together: what each solves, when each occurs, who owns each, and which mistake follows from treating them as interchangeable.
-
-### State Ladder
-
-For lifecycles, approvals, tasks, and runtime behavior, show entry condition, allowed actions, exit condition, failure, and recovery for each state. Add one sentence about the human meaning of the state.
-
-### Recognition Labels
-
-Use direct phrases such as “the source establishes,” “the team decided,” “the document proposes,” “this explanation infers,” and “the available material does not show.” Apply labels where confusion would change a decision, not to every sentence.
-
-## Stop Rule
-
-Stop expanding when the reader can traverse the load-bearing route without guessing. Extra definitions, examples, history, or analogies that close no remaining gap are compression in reverse and should be removed.
+Stop when the important connection is clear at the requested depth. Another definition, example, or analogy must earn its place by closing a remaining gap.
